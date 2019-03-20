@@ -1,4 +1,4 @@
-package payroll;
+package com.payroll;
 
 import lombok.Data;
 import lombok.Getter;
@@ -9,7 +9,6 @@ import javax.persistence.*;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 
 @Data
@@ -30,7 +29,7 @@ public class Order {
 
 
    @OneToMany(fetch = FetchType.EAGER, mappedBy = "order",cascade = CascadeType.REMOVE, orphanRemoval = true)
-   private List<Order_Line> order_lineList;
+   private List<OrderLine> order_lineList;
 
 
 

@@ -1,4 +1,4 @@
-package payroll;
+package com.payroll;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +15,15 @@ public class GoodsController {
     List<Goods> getAll() {
         return goodsService.getAll();
     }
-    @PostMapping("/goods/Add")                     //Adding new item        +
-    void Add(@RequestBody Goods newGoods){
-        goodsService.add(newGoods);
+
+    @PostMapping("/goods/addOrEdit")                     //Adding new item        +
+    Goods add(@RequestBody Goods newGoods){
+        return goodsService.add(newGoods);
+    }
+
+    @PutMapping("/goods/edit")                     //Adding new item        +
+    Goods edit(@RequestBody Goods newGoods){
+        return goodsService.add(newGoods);
     }
 
     @GetMapping("/goods/get")                      //getting by ID          +
@@ -29,11 +35,7 @@ public class GoodsController {
     void deleteEmployee(@RequestBody Long id) {
         goodsService.deleteById(id);
     }
-    @PutMapping("/goods/editgoods")                       //edit current goods
-    Goods editGoods(@RequestBody Goods newGoods) {
 
-        return goodsService.editGoods(newGoods);
-    }
 
 }
 

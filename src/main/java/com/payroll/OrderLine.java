@@ -1,4 +1,4 @@
-package payroll;
+package com.payroll;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "order_line", schema = "")
-public class Order_Line {
+public class OrderLine {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,11 +28,12 @@ public class Order_Line {
     @JoinColumn (name="goods",referencedColumnName="id")
     private Goods goods;
     */
+
     private Long order_id;
     private Long goods_id;
     private int count;
 
-    public Order_Line(Long order_id, Long goods_id, int count) {
+    public OrderLine(Long order_id, Long goods_id, int count) {
         this.goods_id=order_id;
         this.goods_id = goods_id;
         this.count = count;

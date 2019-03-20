@@ -1,4 +1,4 @@
-package payroll;
+package com.payroll;
 
 import java.util.List;
 
@@ -11,53 +11,50 @@ class OrderController {
 
 
     @Autowired
-    private Order_LineService order_lineService = new Order_LineServiceImpl();
+    private OrderLineService orderlineService = new OrderLineServiceImpl();
 
     @Autowired
     private OrderService orderService = new OrderServiceImpl();
 
-    @Autowired
-    private GoodsService goodsService = new GoodsServiceImpl();
 
-    /*
-    private final OrderService orderService;
-    public OrderService_(OrderService orderService){
-        this.orderService=orderService;
-    }*/
-
-
-
-
-    //EmployeeController(OrderRepository repository) {
-       // this.repository = repository;
-   // }
-
-    @GetMapping("/employees")
+    @GetMapping("/order/getall")
     List<Order> all() {
         return orderService.getAll();
     }
-    @PostMapping("/Order/Add")
-    void Add(@RequestBody Order newOrder){
-        orderService.add(newOrder);
-    }
-    @PostMapping("/Order_line/Add")
-    void AddLine(@RequestBody Order_Line newOrder_line){
-        order_lineService.addOrderLine(newOrder_line);
-    }
-    @GetMapping("/Order_line/get/{id}")
-    List<Order_Line> OrderLineById(@PathVariable Long id) {
-        return order_lineService.getAllByOrder(id);
-    }
-    @GetMapping("/Order_line/get/all")
-    List<Order_Line> All() {
-        return order_lineService.getAll();
+
+    @GetMapping("/order/get")
+    Order all(@RequestBody Long id) {
+        return orderService.getById(id);
     }
 
-    @DeleteMapping("/orders/")
+    @PostMapping("/order/add")
+    Order add(@RequestBody Order newOrder){
+        return orderService.add(newOrder);
+    }
+
+    @PutMapping("/order/edit")
+    Order edit(@RequestBody Order newOrder){
+        return orderService.add(newOrder);
+    }
+
+    @PostMapping("/order/addorderline")
+    OrderLine addOrderLine(@RequestBody OrderLine newOrderLine){
+        return orderlineService.addOrderLine(newOrderLine);
+    }
+
+    @DeleteMapping("/order/delete")
     void deleteOrder(@RequestBody Long id) {
 
         orderService.deleteById(id);
     }
+
+    @GetMapping("/Order/getbyorder/")
+    List<OrderLine> OrderLineById(@RequestBody Long id) {
+        return orderlineService.getAllByOrder(id);
+    }
+
+
+
 
     // Aggregate root
     /*
@@ -66,7 +63,7 @@ class OrderController {
         return repository.findAll();
     }
     @PutMapping("/employees/AddPhones/{id}")
-    void AddPhone(@RequestBody Order_Line newOrderLine, @PathVariable Long id){
+    void AddPhone(@RequestBody OrderLine newOrderLine, @PathVariable Long id){
         System.out.println(newOrderLine +"   "+id);
         orderService.setEmployeePhone(id, newOrderLine);
     }
@@ -89,7 +86,7 @@ class OrderController {
     }
 
     @GetMapping("/employees/Phone/{id}")
-    List<Order_Line> getPhones(@PathVariable Long id) {
+    List<OrderLine> getPhones(@PathVariable Long id) {
         return orderService.getEmployeePhones(id);
     }
 

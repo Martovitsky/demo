@@ -1,4 +1,4 @@
-package payroll;
+package com.payroll;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,18 +19,21 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order getOneByName(String client) {  return orderRepository.findByClient(client);}
+    public Order getById(Long id) {  return orderRepository.findById(id).get();}
 
 
     @Override
+    @Transactional
     public void deleteById(Long id){
-        orderRepository.delete(orderRepository.findById(id).get());
+        orderRepository.deleteById(id);
     }
 
     @Override
     @Transactional
-    public void add(Order order) {
-        orderRepository.save(order);
+    public Order add(Order order) {
+        return orderRepository.save(order);
     }
+
+
 }
 

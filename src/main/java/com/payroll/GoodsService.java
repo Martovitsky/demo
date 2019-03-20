@@ -1,4 +1,4 @@
-package payroll;
+package com.payroll;
 
 import java.util.List;
 
@@ -9,12 +9,12 @@ public interface GoodsService {
 
     void deleteById(Long id);
 
-    void add(Goods goods);
+    Goods add(Goods goods);
 
-    Goods editGoods(Goods goods);
+   // Goods editGoods(Goods goods);
     Goods findById(Long aLong);
 
-    //void setEmployeePhone(Long id, Order_Line orderLineNumber);
+    //void setEmployeePhone(Long id, OrderLine orderLineNumber);
 
 }
 

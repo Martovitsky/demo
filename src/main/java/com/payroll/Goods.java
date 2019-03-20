@@ -1,4 +1,4 @@
-package payroll;
+package com.payroll;
 
 import lombok.Data;
 import lombok.Getter;
