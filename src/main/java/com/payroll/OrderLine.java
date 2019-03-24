@@ -1,18 +1,14 @@
 package com.payroll;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "order_line", schema = "")
+@Table(name = "order_line", schema = "payroll")
 public class OrderLine {
 
     @Id
@@ -24,10 +20,6 @@ public class OrderLine {
 
     private Order order;
 
-    /*@OneToOne(cascade=CascadeType.REMOVE)
-    @JoinColumn (name="goods",referencedColumnName="id")
-    private Goods goods;
-    */
 
     private Long order_id;
     private Long goods_id;

@@ -1,9 +1,6 @@
 package com.payroll;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,26 +9,20 @@ import java.util.List;
 
 
 @Data
-@Getter
-@Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "order_table", schema = "")
+@Table(name = "order_table", schema = "payroll")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String client;
     private String address;
     private Date date;
 
 
-
    @OneToMany(fetch = FetchType.EAGER, mappedBy = "order",cascade = CascadeType.REMOVE, orphanRemoval = true)
    private List<OrderLine> order_lineList;
-
-
 
     public Order(String client,  Date date, String address) {
         this.client = client;

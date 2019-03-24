@@ -1,29 +1,20 @@
 package com.payroll;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 
 @Data
-@Getter
-@Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "Goods", schema = "")
+@Table(name = "Goods", schema = "payroll")
 public class Goods {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
     private double price;
-
-
-
 
     Goods(String name, double price) {
         this.name = name;

@@ -11,10 +11,8 @@ public interface GoodsService {
 
     Goods add(Goods goods);
 
-   // Goods editGoods(Goods goods);
     Goods findById(Long aLong);
 
-    //void setEmployeePhone(Long id, OrderLine orderLineNumber);
 
 }
 

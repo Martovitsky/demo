@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
@@ -19,19 +19,15 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order getById(Long id) {  return orderRepository.findById(id).get();}
-
+    public Order getById(Long id) {  return orderRepository.findById(id).orElse(null);}
 
     @Override
-    @Transactional
     public void deleteById(Long id){
         orderRepository.deleteById(id);
     }
 
     @Override
-    @Transactional
-    public Order add(Order order) {
-        return orderRepository.save(order);
+    public Order add(Order order) { return orderRepository.save(order);
     }
 
 
