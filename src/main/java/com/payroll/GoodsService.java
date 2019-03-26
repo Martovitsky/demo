@@ -11,8 +11,7 @@ public interface GoodsService {
 
     Goods add(Goods goods);
 
-    Goods findById(Long aLong);
-
+    Goods findById(Long id);
 
 }
 

@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "order_line", schema = "payroll")
+@Table(name = "orderLine", schema = "payroll")
 public class OrderLine {
 
     @Id
@@ -16,18 +16,15 @@ public class OrderLine {
     private int id;
 
     @ManyToOne
-    @JoinColumn (name="order_table",referencedColumnName="id")
-
+    @JoinColumn (name="orderId",referencedColumnName="id")
     private Order order;
 
-
-    private Long order_id;
-    private Long goods_id;
+    private Long goodsId;
     private int count;
 
-    public OrderLine(Long order_id, Long goods_id, int count) {
-        this.goods_id=order_id;
-        this.goods_id = goods_id;
+    public OrderLine(Long goodsId, int count) {
+
+        this.goodsId = goodsId;
         this.count = count;
 
     }

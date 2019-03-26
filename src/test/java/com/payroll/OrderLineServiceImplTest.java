@@ -22,6 +22,5 @@ public class OrderLineServiceImplTest {
         when(repository.save(new OrderLine())).thenReturn(new OrderLine());
         orderLineService.addOrderLine(new OrderLine());
         verify(repository).save(new OrderLine());
-
     }
 }

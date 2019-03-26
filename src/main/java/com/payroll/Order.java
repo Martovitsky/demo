@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor
-@Table(name = "order_table", schema = "payroll")
+@Table(name = "orderTable", schema = "payroll")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Order {
 
 
    @OneToMany(fetch = FetchType.EAGER, mappedBy = "order",cascade = CascadeType.REMOVE, orphanRemoval = true)
-   private List<OrderLine> order_lineList;
+   private List<OrderLine> orderLineList;
 
     public Order(String client,  Date date, String address) {
         this.client = client;

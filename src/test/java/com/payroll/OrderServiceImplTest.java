@@ -5,12 +5,10 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import java.util.Collections;
 import java.util.Optional;
 
 import static java.util.Collections.*;
-import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -30,17 +28,15 @@ public class OrderServiceImplTest {
 
     @Test
     public void testGetById() {
-        when(repository.findById(1L)).thenReturn(Optional.of(new Order()));
-        orderService.getById(1L);
-        verify(repository).findById(1L);
-
-
+        when(repository.findById(anyLong())).thenReturn(Optional.of(new Order()));
+        orderService.getById(anyLong());
+        verify(repository).findById(anyLong());
     }
 
     @Test
     public void deleteById() {
-        orderService.deleteById(1L);
-        verify(repository).deleteById(1L);
+        orderService.deleteById(anyLong());
+        verify(repository).deleteById(anyLong());
     }
 
     @Test

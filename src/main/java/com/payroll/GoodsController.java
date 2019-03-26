@@ -7,7 +7,6 @@ import java.util.List;
 @RestController
 public class GoodsController {
 
-
     @Autowired
     private GoodsService goodsService;
 
@@ -16,7 +15,7 @@ public class GoodsController {
         return goodsService.getAll();
     }
 
-    @PostMapping("/goods/addOrEdit")
+    @PostMapping("/goods/add")
     public Goods add(@RequestBody Goods newGoods){
         return goodsService.add(newGoods);
     }

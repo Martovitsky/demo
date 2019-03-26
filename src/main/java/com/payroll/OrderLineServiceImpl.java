@@ -13,8 +13,8 @@ public class OrderLineServiceImpl implements OrderLineService {
     private OrderLineRepository orderlineRepository;
 
     @Override
-    public OrderLine addOrderLine(OrderLine order_line) {
-       return orderlineRepository.save(order_line);
+    public OrderLine addOrderLine(OrderLine orderLine) {
+       return orderlineRepository.save(orderLine);
     }
 
 }

@@ -13,7 +13,7 @@ class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @GetMapping("/order/getall")
+    @GetMapping("/order/getAll")
     public List<Order> all() {
         return orderService.getAll();
     }
@@ -33,7 +33,7 @@ class OrderController {
         return orderService.add(newOrder);
     }
 
-    @PostMapping("/order/addorderline")
+    @PostMapping("/order/addOrderLine")
     public OrderLine addOrderLine(@RequestBody OrderLine newOrderLine){
         return orderlineService.addOrderLine(newOrderLine);
     }

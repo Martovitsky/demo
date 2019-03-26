@@ -5,18 +5,17 @@ CREATE TABLE payroll.goods (
   name    VARCHAR,
   price   DOUBLE PRECISION,
 );
-DROP TABLE IF EXISTS payroll.order_line;
-CREATE TABLE payroll.order_line(
-  id      INTEGER,
-  order_id INTEGER,
-  goods_id INTEGER,
-  goods_count INTEGER,
+DROP TABLE IF EXISTS payroll.orderLine;
+CREATE TABLE payroll.orderLine(
+  id        INTEGER,
+  goodsId  INTEGER,
+  orderId  INTEGER,
+  count     INTEGER,
 );
-DROP TABLE IF EXISTS payroll.order_table;
-CREATE TABLE payroll.order_table(
+DROP TABLE IF EXISTS payroll.orderTable;
+CREATE TABLE payroll.orderTable(
   id      INTEGER,
-  client VARCHAR,
+  client  VARCHAR,
   address VARCHAR,
-  DATE DATE,
+  date    DATE,
 );
-

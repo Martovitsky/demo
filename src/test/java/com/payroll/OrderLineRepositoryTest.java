@@ -20,8 +20,8 @@ public class OrderLineRepositoryTest {
 
     @Test
     public void testFindAll() {
-        List<OrderLine> result = repository.findAll();
-        assertEquals(1, result.size());
+       List<OrderLine> result = repository.findAll();
+       assertEquals(1, result.size());
     }
 
 }

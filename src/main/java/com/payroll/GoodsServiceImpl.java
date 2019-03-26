@@ -23,7 +23,7 @@ public class GoodsServiceImpl implements GoodsService{
     }
 
     @Override
-    public Goods findById(Long id) {  return goodsRepository.findById(id).get();}
+    public Goods findById(Long id) {  return goodsRepository.findById(id).orElse(null);}
 
     @Override
     public Goods add(Goods goods) {
